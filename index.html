@@ -5,6 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Czesiek 2</title>
   <style>
+    .niebieski-przycisk {
+      background-color: #007BFF;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 0;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .niebieski-przycisk:hover {
+      background-color: #0056b3;
+    }
     body {
       font-family: Arial, sans-serif;
       background-color: #f4f4f4;
@@ -29,15 +43,17 @@
   </style>
 </head>
 <body>
+  
   <header>
     <h1>Kółko o 14:00, wtorek</h1>
   </header>
+ 
+  <nav>
+    <a href="index.html" class="niebieski-przycisk">Strona główna</a>
+    <a href="snake/snake.html" class="niebieski-przycisk">Tajemniczy przycisk</a>
+  </nav>
 
   <main>
-    <nav>
-      <a href="index.html">Strona główna</a>
-      <a href="snake">Tajemniczy przycisk</a>
-    </nav>
     <h2>Ja Cię kręce, ale fajny Czesiek</h2>
     <img src="czesiek.jpg" alt="Czesiek" width="600">
     <h1>Zegar: </h1>
@@ -50,7 +66,8 @@
   </main>
 
   <footer>
-    &copy; 2025 Kółko u Wacka
+    &copy; 2025 Kółko u MrWacława
   </footer>
 </body>
 </html>
+
