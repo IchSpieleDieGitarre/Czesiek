@@ -45,6 +45,6 @@ function los_kom() {
   talie[los_t[1]].splice(los_k2, 1);  
 }
 window.onload = function() {
-  setTimeout(los_Gracz, 500);  
+  los_Gracz();
   setTimeout(los_kom, 500);  
 };
