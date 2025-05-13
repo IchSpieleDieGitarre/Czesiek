@@ -10,6 +10,7 @@ let los_k2;
 let los_t = [];
 let p_karta;
 let d_karta;
+let t_karta;
 let x, y; 
 let karta_gr1;
 let karta_kr1;
@@ -21,7 +22,12 @@ let As_gr = 0;
 let As_kr = 0;
 let c_ręka_gr;
 let c_ręka_kr;
-
+let ręka_gr1;
+let ręka_gr2;
+let ręka_kr1;
+let ręka_kr2;
+let los_nowy;
+let los_kolejny;
 // Funkcja do losowania talii i kart
 function nr_kart() {
   x = Math.floor(Math.random() * 4);  
@@ -30,8 +36,19 @@ function nr_kart() {
   do {
     los_k1 = Math.floor(Math.random() * talie[x].length);  // Losowanie karty dla gracza
     los_k2 = Math.floor(Math.random() * talie[y].length);  // Losowanie karty dla komputera
-  } while (los_k1 === los_k2);  // Pętla zapewniająca, że karty są różne
+  } while (x === y && los_k1 === los_k2);  // Pętla zapewniająca, że karty są różne
 }
+
+function nr_kart_n() {
+  if (talie[x].length === 0 || talie[y].length === 0) {
+  alert("Brak kart w jednej z talii!");
+  return;
+  }
+  x = Math.floor(Math.random() * 4);  
+  los_nowy = x;
+  los_kolejny = Math.floor(Math.random() * talie[x].length);  // Losowanie karty dla gracza
+}
+
 
 // Funkcja do wyświetlania kart gracza
 function los_Gracz() {
@@ -58,63 +75,30 @@ function los_kom() {
 }
 
 function blackjack(){
-  function ruch1(){
-    if(karty_gr[0] == J || Q || K){ //ręka gracza
-      ręka_gr1 = 10;
-    }
-    else if(karty_gr[0] == A){
-      ręka_gr1 = As;
-    }
-    else{
-      ręka_gr1 = karty_gr[0];
-    }
-    if(karty_gr[1] == J || Q || K){
-      ręka_gr2 = 10;
-    }
-    else if(karty_gr[1] == A){
-      ręka_gr2 = As;
-    }
-    else{
-      ręka_gr2 = karty_gr[1];
-    }
+
+  function wartośćKarty(karta) {
+  if (karta === "A") return 11; // A jako domyślnie 11
+  if (["J", "Q", "K"].includes(karta)) return 10;
+  return Number(karta);
   }
-  function ruch_kom1(){
-    if(karty_kom[0] == J || Q || K){ //ręka krupiera
-      ręka_kr1 = 10;
-    }
-    else if(karty_kom[0] == A){
-      ręka_kr1 = As;
-    }
-    else{
-      ręka_kr1 = karty_kom[0];
-    }
-    if(karty_kom[1] == J || Q || K){
-      ręka_kr2 = 10;
-    }
-    else if(karty_kom[1] == A){
-      ręka_kr2 = As;
-    }
-    else{
-      ręka_kr2 = karty_kom[1];
-    }
+
+function obliczSume(karty) {
+  let suma = 0;
+  let liczbaAsów = 0;
+  for (const karta of karty) {
+    const wartość = wartośćKarty(karta);
+    if (karta === "A") liczbaAsów++;
+    suma += wartość;
   }
-  function wyznacz_as_gr(){
-    if(ręka_gr1 + ręka_gr2 + 11 < 21){
-      As_gr = 1;
-    }
-    else{
-      As_gr = 11;
-    }
+
+  while (suma > 21 && liczbaAsów > 0) {
+    suma -= 10; // zmień jeden As z 11 na 1
+    liczbaAsów--;
   }
-  function wyznacz_as_kr(){
-    if(ręka_kr1 + ręka_kr2 + 11 < 21){
-      As_kr = 1;
-    }
-    else{
-      As_kr = 11;
-    }
-    
-  }
+
+  return suma;
+}
+  
   function porównanie(){
   if(c_ręka_kr > 21){
     const tekst = `Wygrywasz`;
@@ -129,17 +113,36 @@ function blackjack(){
       document.getElementById("Przegrana").textContent = tekst;      
     }
   }
-  ruch1();
-  ruch_kom1();
-  wyznacz_as_gr();
-  wyznacz_as_kr();
-  c_ręka_gr = ręka_gr1 + ręka_gr2;
-  c_ręka_kr = ręka_kr1 + ręka_kr2;
+  c_ręka_gr = obliczSume(karty_gr)
+  c_ręka_kr = obliczSume(karty_kom)
   porównanie();
 }
 
-window.onload = function() {
+function los_Gracz_n() {
+    if (!los_t[0]) {
+      alert("Najpierw rozdaj karty!");
+      return;
+    } 
+    nr_kart_n();
+    p_karta = talie[los_t[0]][los_kolejny];
+    if (talie[los_t[0]].length === 0) {
+    alert("Brak kart w talii gracza!");
+    return;
+    }
+    else{
+    talie[los_t[0]].splice(los_kolejny, 1);  // Usuwanie karty z talii
+    karty_gr.push(p_karta);
+    const tekst = `Twoje karty: ${karty_gr.join(", ")}`;  // Poprawienie wyświetlania
+    document.getElementById("wynik").textContent = tekst;  // Wyświetlanie kart
+  }
+}
+
+
+
+window.addEventListener("load", function() {
   los_Gracz();  
   setTimeout(los_kom, 500); 
   blackjack();
-};
+});
+
+window.los_Gracz_n = los_Gracz_n;
