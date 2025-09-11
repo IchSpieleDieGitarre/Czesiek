@@ -5,57 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Czesiek 2</title>
   <style>
-    img, table, div {
-    max-width: 100%;
-    overflow-x: auto;
-    }
-    @media (max-width: 768px) {
-    .menu {
-    flex-direction: column;
-   }
 
-  .content {
-    padding: 10px;
-  }
-}    
-    .niebieski-przycisk {
-      background-color: #007BFF;
-      color: white;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 0;
-      font-size: 16px;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-
-    .niebieski-przycisk:hover {
-      background-color: #0056b3;
-    }
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
-      margin: 0;
-      padding: 20px;
-    }
-    header {
-      background-color: #2196f3;
-      color: white;
-      padding: 15px;
-      text-align: center;
-    }
-    main {
-      margin-top: 20px;
-      text-align: center;
-    }
-    footer {
-      margin-top: 40px;
-      text-align: center;
-      color: #777;
-    }
   </style>
-  <title>Lista rozwijana</title>
-  <!-- Łączenie z plikiem CSS -->
+
   <link rel="stylesheet" href="styl_lista.css">
 </head>
 <body>
@@ -63,14 +15,15 @@
   <header>
     <h1>Kółko o 14:00, wtorek</h1>
     <nav>
-      <label for="menu">Wybierz stronę:</label>
-        <select id="menu" onchange="location = this.value;">
-          <option value="index.html">Strona główna</option>
-          <option value="snake.html">Tajemniczy przycisk</option>
-          <option value="wojna/wojna_strona.html">Nadtajemniczy przycisk</option>
-</select>
-      
-</select>
+  <div class="dropdown">
+    <button onclick="toggleMenu()" class="dropbtn">Menu ▼</button>
+    <div id="dropdownMenu" class="dropdown-content">
+      <a href="index.html">Strona główna</a>
+      <a href="snake.html">Tajemniczy przycisk</a>
+      <a href="wojna/wojna_strona.html">Nadtajemniczy przycisk</a>
+    </div>
+  </div>
+
     </nav>
   </header>
  
@@ -91,6 +44,7 @@
   <footer>
     &copy; 2025 Kółko u MrWacława
   </footer>
+  <script src="menu.js"></script>
 </body>
 </html>
 
