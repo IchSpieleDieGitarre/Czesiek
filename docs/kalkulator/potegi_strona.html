@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="../icon.ico">
+  <title>Czesiek 2</title>
+    
+</head>
+    <link rel="stylesheet" href="../styl_lista.css">
+    <link rel="stylesheet" href="potegi_UI.css">
+<body class="UI">
+
+    <header>
+        <h1>Kalkulator BETA v1.0</h1>
+    <nav>
+  <div class="dropdown">
+    <button onclick="toggleMenu()" class="dropbtn">Menu ▼</button>
+    <div id="dropdownMenu" class="dropdown-content">
+      <a href="../index.html">Strona główna</a>
+      <a href="../snake.html">Tajemniczy przycisk</a>
+      <a href="../wojna/wojna_strona.html">Nadtajemniczy przycisk</a>
+    </div>
+  </div>
+  </nav>
+    </header>
+    <main>
+        <div class="calc_display" style="margin-bottom: 1%;">
+          <div class="display_text">
+            <span id="wynik"></span><span class="cursor" id="cursor">_</span>
+          </div>
+        <button class="calc_ca" onclick="reset()">CA</button>
+        </div>
+        <div class="buttons">
+            <button class="calc_button" onclick="wpisywanie('1')">1</button>
+            <button class="calc_button" onclick="wpisywanie('2')">2</button>
+            <button class="calc_button" onclick="wpisywanie('3')">3</button>
+            <button class="calc_button" onclick="oddziel('+')">+</button>
+            <button class="calc_button" onclick="wpisywanie('4')">4</button>
+            <button class="calc_button" onclick="wpisywanie('5')">5</button>
+            <button class="calc_button" onclick="wpisywanie('6')">6</button>
+            <button class="calc_button" onclick="oddziel('-')">-</button>
+            <button class="calc_button" onclick="wpisywanie('7')">7</button>
+            <button class="calc_button" onclick="wpisywanie('8')">8</button>
+            <button class="calc_button" onclick="wpisywanie('9')">9</button>
+            <button class="calc_button" onclick="oddziel('x')">X</button>
+            <button class="calc_button" onclick="wpisywanie('0')">0</button>
+            <button class="calc_button">p</button>
+            <button class="calc_button">√</button>
+            <button class="calc_button" onclick="oddziel('/')">/</button>
+        </div>
+        <button style="margin-top: 1px; margin-bottom: 20px;" class="calc_eq" onclick="rownanie()">=</button>
+        <div style = "padding-bottom: 5px;">
+            <p>p - potęgi (Jeszcze nie zrobione)</p>
+            <p>√ - pierwiastkowanie (Jeszcze nie zrobione)</p>
+            <p>Aby zrestartować kliknij CA (wyniki się na razie nie zapisują)</p>
+        </div>
+    </main>
+    <footer>
+    &copy; 2026 Kółko u MrWacława
+    </footer>
+    <script src="../menu.js"></script>
+    <script src="potegi.js"></script>
+</body>
+</html>
