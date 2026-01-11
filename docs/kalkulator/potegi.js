@@ -38,6 +38,9 @@ function rownanie(){
                 ghost_wynik = wspolne / licz2;
                 wynik = String(ghost_wynik);
                 break;
+            case 'p':
+                potęgowanie();
+                break;
             default:
                 wynik = "ERROR";
         }
@@ -57,15 +60,11 @@ function oddziel(dzialanie){
 }
 
 function potęgowanie(){
-    const potęga = Number(document.getElementById("pot").value);
-    if (potęga === 0) {
-    document.getElementById("wynik").textContent = 1;
-    return;
+    let liczona = wspolne;
+    for(let i = 1; i < licz2; i++){
+       liczona = liczona * wspolne;
     }
-    for(let i = 1; i < potęga; i++){
-        liczona = liczona * liczba;
-    }
-    wynik = String(liczona);
+    wynik = liczona;
     document.getElementById("wynik").textContent = wynik;
 }
 
