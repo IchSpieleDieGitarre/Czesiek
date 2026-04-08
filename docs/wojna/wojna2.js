@@ -134,6 +134,12 @@ function los_Gracz_n() {
     karty_gr.push(p_karta);
     const tekst = `Twoje karty: ${karty_gr.join(", ")}`;  // Poprawienie wyświetlania
     document.getElementById("wynik").textContent = tekst;  // Wyświetlanie kart
+    if(c_ręka_gr > 21){
+      alert("Spaliłeś");
+    }
+    else{    
+    blackjack();
+    }
   }
 }
 

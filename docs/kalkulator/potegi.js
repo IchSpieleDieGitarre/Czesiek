@@ -41,6 +41,9 @@ function rownanie(){
             case 'p':
                 potęgowanie();
                 break;
+            case '√':
+                //pierwiastkowanie();
+                break;
             default:
                 wynik = "ERROR";
         }
@@ -67,7 +70,9 @@ function potęgowanie(){
     wynik = liczona;
     document.getElementById("wynik").textContent = wynik;
 }
-
+function pierwiastkowanie(){
+    
+}
 function reset(){
     startInput();
     wynik = "";
