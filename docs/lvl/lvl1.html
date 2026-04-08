@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pl">
+    <link rel="stylesheet" href="lvl1.css">
+    
+    <body>
+    <div class="wrapper"> 
+        <p id="wynik"></p>  
+        <div class="game" id="game">
+            
+
+            <div id="player" class="player">
+                <div id="shadow" class="shadow"></div>
+            </div>
+            
+            <div id="ghost_player">start</div>
+        </div>
+        <div class="controls">
+            <button class="arrow" onclick="arrow_nav('w')">↑</button>
+
+            <div class="lower_row">
+                <button class="arrow" onclick="arrow_nav('a')">←</button>
+                <button class="arrow" onclick="arrow_nav('s')">↓</button>
+                <button class="arrow" onclick="arrow_nav('d')">→</button>
+            </div>
+        </div>
+    </div>
+    </body>
+    
+    <script src="lvl1.js"></script>
+</html>

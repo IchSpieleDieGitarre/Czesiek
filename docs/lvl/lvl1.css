@@ -1,0 +1,95 @@
+body{
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90vw;
+  height: 100vh;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.game {
+  height: 400px;
+  width: 400px;
+  border: 3px solid black;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.player {
+  width: 10px;
+  height: 10px;
+  background: rgb(85, 255, 0);
+  border-radius: 50%;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: absolute;
+  pointer-events: none;
+  z-index: 2;
+  text-align: center;
+}
+
+.apple{
+  height: 20px;
+  width: 20px;
+  background: rgb(219, 0, 0);
+  position: absolute;
+  border-radius: 50%;
+}
+
+.ghost_player{
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: aqua;
+  position: absolute;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.lower_row{
+  padding-top: 2px;
+}
+
+.controls{
+    width: 400px;     
+    margin: 10px auto;
+    text-align: center;
+}
+
+.arrow{
+    width: 60px;
+    height: 60px;
+    
+    font-size: 32px;
+    font-family: 'Courier New', monospace;
+
+    text-align: center;
+    padding: 10px 10px;
+    
+    background: #545659;
+    color: rgb(198, 196, 196);
+
+    border: none;
+    border-radius: 8px; 
+
+    box-shadow:
+    inset 0 0 8px #000,
+    0 4px 10px rgba(0,0,0,0.4);
+}
+.arrow:active {
+  transform: scale(0.97);
+  box-shadow: inset 0 0 6px rgba(0,0,0,0.4);
+}
